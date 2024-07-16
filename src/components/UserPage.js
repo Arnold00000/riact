@@ -20,7 +20,7 @@ const UserPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/devicedata', formData);
+      const response = await axios.post('http://127.0.0.1:5000/devicedata', formData);
       alert(response.data.message);
     } catch (error) {
       console.error('There was an error submitting the form!', error);
