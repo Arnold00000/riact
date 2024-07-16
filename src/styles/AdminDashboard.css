@@ -1,0 +1,42 @@
+/* Admin Dashboard Specific Styles */
+.admin-container {
+    padding: 20px;
+  }
+  
+  .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .admin-table th, .admin-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .admin-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .admin-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .admin-actions {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .admin-actions button {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .admin-actions button.resolved {
+    background-color: #dc3545;
+  }
+  

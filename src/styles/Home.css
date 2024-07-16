@@ -1,0 +1,33 @@
+/* Home Page Specific Styles */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #007bff, #00aaff);
+    color: white;
+  }
+  
+  .home-title {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  
+  .home-description {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+  }
+  
+  
+  .buttons {
+    margin-top: 20px;
+  }
+  
+  .btn {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  

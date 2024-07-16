@@ -1,0 +1,41 @@
+/* User Page Specific Styles */
+
+ 
+  .user-page-container {
+    text-align: center;
+    margin-top: 50px;
+
+    padding: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  input, textarea {
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
