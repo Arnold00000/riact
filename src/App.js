@@ -5,6 +5,8 @@ import UserPage from './components/UserPage';
 import AdminDashboard from './components/AdminDashboard';
 
 import UserRegister from './components/UserRegister';
+import UserLogin from './components/UserLogin';
+
 
 import './App.css';
 
@@ -14,8 +16,10 @@ const App = () => {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/userLogin" element={<UserPage />} />
+          <Route path="/userLogin" element={<UserLogin />} />
           <Route path="/userRegister" element={<UserRegister />} />
+          <Route path="/userPage" element={<UserPage />} />
+
 
 
 
