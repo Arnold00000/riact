@@ -1,42 +1,66 @@
-/* Admin Dashboard Specific Styles */
-.admin-container {
-    padding: 20px;
-  }
-  
-  .admin-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  .admin-table th, .admin-table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-  }
-  
-  .admin-table th {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .admin-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .admin-actions {
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .admin-actions button {
-    background-color: #28a745;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .admin-actions button.resolved {
-    background-color: #dc3545;
-  }
-  
+/* AdminDashboard.css */
+
+.admin-dashboard {
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #510202;
+}
+
+.table th {
+  background-color: #e2c5c5;
+}
+
+.btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}

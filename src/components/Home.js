@@ -18,12 +18,15 @@ const Home = () => {
         <Link to="/adminLogin">
           <button className="btn">Admin Login</button>
         </Link>
-        <Link to="/adminRegister">
-          <button className="btn">Admin Register</button>
-        </Link>
+       
       </div>
     </div>
   );
 };
 
 export default Home;
+
+
+ /* <Link to="/adminRegister">
+          <button className="btn">Admin Register</button>
+        </Link> */

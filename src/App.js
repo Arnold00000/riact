@@ -2,13 +2,15 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import UserPage from './components/UserPage';
-import AdminDashboard from './components/AdminDashboard';
+// import AdminDashboard from './components/AdminDashboard';
 
 import UserRegister from './components/UserRegister';
 import UserLogin from './components/UserLogin';
 
 
 import './App.css';
+import AdminLogin from './components/AdminLogin';
+import AdminDashboard from './components/AdminDashboard';
 
 const App = () => {
   return (
@@ -23,8 +25,10 @@ const App = () => {
 
 
 
-          <Route path="/adminLogin" element={<AdminDashboard />} />
-          <Route path="/adminRegister" element={<AdminDashboard />} />
+          <Route path="/adminLogin" element={<AdminLogin />} />
+          <Route path="/admindashboard" element={<AdminDashboard />} />
+
+
         </Routes>
       </div>
     </Router>
@@ -32,3 +36,6 @@ const App = () => {
 };
 
 export default App;
+
+
+/* <Route path="/adminRegister" element={<AdminDashboard />} /> */

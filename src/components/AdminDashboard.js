@@ -1,78 +1,65 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import '../styles/AdminDashboard.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios"; //npm install axios --save 
+import { Link } from 'react-router-dom';
+import '../styles/AdminDashboard.css'; // Import the CSS file
 
-const AdminDashboard = () => {
+export default function AdminDashboard() {
+
   const [users, setUsers] = useState([]);
-  const [deviceData, setDeviceData] = useState([]);
 
   useEffect(() => {
-    // Fetch users and device data from the backend
-    const fetchData = async () => {
-      try {
-        const usersResponse = await axios.get('/users');
-        setUsers(usersResponse.data);
-        const deviceDataResponse = await axios.get('/deviceinfo');
-        setDeviceData(deviceDataResponse.data);
-      } catch (error) {
-        console.error('Error fetching data', error);
-      }
-    };
-
-    fetchData();
+    getUsers();
   }, []);
 
-  const handleStatusChange = (id, status) => {
-    // Update the status of the device data
-    axios.put(`/deviceinfo/${id}`, { status })
-      .then(response => {
-        alert(response.data.message);
-        setDeviceData(deviceData.map(data => data.id === id ? { ...data, status } : data));
-      })
-      .catch(error => {
-        console.error('Error updating status', error);
-      });
-  };
+  function getUsers() {
+    axios.get('http://127.0.0.1:5000/deviceinformation').then(function(response) {
+      console.log(response.data);
+      setUsers(response.data);
+    });
+  }
+
+  const deleteUser = (id) => {
+    axios.delete(`http://127.0.0.1:5000/datadelete/${id}`).then(function(response) {
+      console.log(response.data);
+      getUsers();
+    });
+    alert("Successfully Deleted");
+  }
 
   return (
-    <div className="admin-container">
-      <h2>Admin Dashboard</h2>
-      <h3>Users</h3>
-      <ul>
-        {users.map(user => (
-          <li key={user.id}>{user.username} - {user.email}</li>
-        ))}
-      </ul>
-      <h3>Device Data</h3>
-      <table className="admin-table">
-        <thead>
-          <tr>
-            <th>Username</th>
-            <th>IMEI</th>
-            <th>Phone Number</th>
-            <th>Complaint</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {deviceData.map(data => (
-            <tr key={data.id}>
-              <td>{data.username}</td>
-              <td>{data.imei}</td>
-              <td>{data.phonenumber}</td>
-              <td>{data.complaint}</td>
-              <td>{data.status}</td>
-              <td className="admin-actions">
-                <button onClick={() => handleStatusChange(data.id, 'pending')}>Mark as Pending</button>
-                <button className="resolved" onClick={() => handleStatusChange(data.id, 'resolved')}>Mark as Resolved</button>
-              </td>
+    <div className="admin-dashboard">
+      <div className="container">
+        <div className="header">
+          <Link to="/userPage" className="btn btn-success">Add New User</Link>
+          <h1>List of Users</h1>
+        </div>
+        <table className="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Username</th>
+              <th>IMEI</th>
+              <th>Phone Number</th>
+              <th>Complaint</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {users.map((device, key) =>
+              <tr key={key}>
+                <td>{device.id}</td>
+                <td>{device.username}</td>
+                <td>{device.imei}</td>
+                <td>{device.phonenumber}</td>
+                <td>{device.complaint}</td>
+                <td>
+                  <button onClick={() => deleteUser(device.id)} className="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
-};
-
-export default AdminDashboard;
+}
