@@ -5,7 +5,7 @@ import '../styles/AdminDashboard.css'; // Import the CSS file
 
 export default function AdminDashboard() {
 
-  const [users, setUsers] = useState([]);
+  const [devices, setUsers] = useState([]);
 
   useEffect(() => {
     getUsers();
@@ -45,7 +45,7 @@ export default function AdminDashboard() {
             </tr>
           </thead>
           <tbody>
-            {users.map((device, key) =>
+            {devices.map((device, key) =>
               <tr key={key}>
                 <td>{device.id}</td>
                 <td>{device.username}</td>
