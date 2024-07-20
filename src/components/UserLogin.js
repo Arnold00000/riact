@@ -26,21 +26,51 @@ const UserLogin = () => {
     }
   };
 
+  const backgroundStyle = {
+    backgroundImage: 'url("/images/logo1.jpeg")',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+  };
+
+  const backgroundOverlayStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(255, 255, 255, 0.5)', // Semi-transparent white overlay
+    zIndex: 1,
+  };
+
+  const loginContainerStyle = {
+    zIndex: 2,
+    position: 'relative',
+  };
+
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Username</label>
-          <input type="text" name="username" onChange={handleChange} required />
-        </div>
-        <div className="form-group">
-          <label>Email</label>
-          <input type="email" name="email" onChange={handleChange} required />
-        </div>
-        {error && <p className="error-message">{error}</p>}
-        <button type="submit">Login</button>
-      </form>
+    <div style={backgroundStyle}>
+      <div style={backgroundOverlayStyle}></div>
+      <div className="login-container" style={loginContainerStyle}>
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Username</label>
+            <input type="text" name="username" onChange={handleChange} required />
+          </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input type="email" name="email" onChange={handleChange} required />
+          </div>
+          {error && <p className="error-message">{error}</p>}
+          <button type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
 };

@@ -29,21 +29,51 @@ export default function RegisterUser() {
     });
   }
 
+  const backgroundStyle = {
+    backgroundImage: 'url("/images/logo1.jpeg")',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+  };
+
+  const backgroundOverlayStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(255, 255, 255, 0.5)', // Semi-transparent white overlay
+    zIndex: 1,
+  };
+
+  const registerContainerStyle = {
+    zIndex: 2,
+    position: 'relative',
+  };
+
   return (
-    <div className="register-container">
-      <h2>Register User</h2>
-      {notification && <div className={`alert ${notification.includes("successfully") ? "alert-success" : "alert-danger"}`}>{notification}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Username</label>
-          <input type="text" className="form-control" name="username" onChange={handleChange} />
-        </div>
-        <div className="form-group">
-          <label>Email</label>
-          <input type="text" className="form-control" name="email" onChange={handleChange} />
-        </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
+    <div style={backgroundStyle}>
+      <div style={backgroundOverlayStyle}></div>
+      <div className="register-container" style={registerContainerStyle}>
+        <h2>Register User</h2>
+        {notification && <div className={`alert ${notification.includes("successfully") ? "alert-success" : "alert-danger"}`}>{notification}</div>}
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Username</label>
+            <input type="text" className="form-control" name="username" onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input type="text" className="form-control" name="email" onChange={handleChange} />
+          </div>
+          <button type="submit" className="btn btn-primary">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }

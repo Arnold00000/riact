@@ -1,4 +1,16 @@
 /* Home.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.home-page {
+  background-color: #e6f7ff; /* Light blue background */
+  min-height: 100vh;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -29,29 +41,64 @@
   align-items: center;
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
 .nav-link {
   color: white;
   text-decoration: none;
-  margin-left: 20px;
+  margin-left: 10px; /* Adjust margin as needed */
 }
 
 .nav-link:hover {
   text-decoration: underline;
 }
 
+.navbar-right .btn {
+  margin-left: 10px; /* Adjust margin as needed */
+  padding: 5px 15px; /* Adjust padding as needed */
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navbar-right .btn:hover {
+  background-color: #0056b3;
+}
+
 .home-container {
   text-align: center;
-  padding: 50px;
+  padding: 20px;
 }
 
 .home-title {
   font-size: 36px;
-  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .home-description {
-  font-size: 18px;
-  margin-bottom: 40px;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.carousel .legend {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  bottom: 20px;
+}
+
+.carousel img {
+  width: 50%; /* Ensure the image takes full width */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 300px; /* Optional: Limit the max height */
+  object-fit: cover; /* Cover the container without distortion */
 }
 
 .buttons .btn {
