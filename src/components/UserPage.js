@@ -1,13 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import '../styles/UserPage.css';
 
 const UserPage = () => {
+  const [inputs, setInputs] = useState({ username: '', imei: '', phonenumber: '', complaint: '' });
+  const [location, setLocation] = useState({ lat: -34.397, lng: 150.644 });
+  const [mapInputs, setMapInputs] = useState({ lat: -34.397, lng: 150.644 });
+
+  const handleChange = (event) => {
+    setInputs({
+      ...inputs,
+      [event.target.name]: event.target.value
+    });
+  //   const { name, value } = event.target;
+  //   setInputs(values => ({ ...values, [name]: value }));
+   };
+
+  const handleMapChange = (event) => {
+    const { name, value } = event.target;
+    setMapInputs(values => ({ ...values, [name]: parseFloat(value) }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    axios.post('http://127.0.0.1:5000/devicedata', inputs)
+      .then(response => {
+        console.log(response.data);
+        alert('Data submitted successfully');
+      })
+      .catch(error => {
+        console.error('There was an error submitting the data!', error);
+        alert('Failed to submit data');
+      });
+  };
+
+  const handleMapSubmit = (event) => {
+    event.preventDefault();
+    setLocation(mapInputs);
+  };
+
   return (
     <div className="userpage-container">
       <nav className="navbar">
         <div className="navbar-logo">
-          <img src="/images/logo.png" alt="Logo" />
+          <img src="/images/logo1.jpeg" alt="Logo" />
           <span>UCC Device Assistant</span>
         </div>
       </nav>
@@ -62,10 +100,23 @@ const UserPage = () => {
           </ul>
         </aside>
         <div className="content">
-          {/* Add content sections here */}
           <section id="findMyDevice">
             <h2>Find My Device</h2>
-            <p>Content for Find My Device...</p>
+            <p>Both Apple and Android offer services to help you locate your device if it is lost or stolen. Use the buttons below to access the respective services.</p>
+            <div className="find-my-device">
+              <div className="illustration">
+                <img src="/images/applefind.jpeg" alt="Apple Find My" />
+                <a href="https://www.icloud.com/find" target="_blank" rel="noopener noreferrer">
+                  <button className="btn">Apple Find My</button>
+                </a>
+              </div>
+              <div className="illustration">
+                <img src="/images/androidfind.jpeg" alt="Android Find My Device" />
+                <a href="https://www.google.com/android/find" target="_blank" rel="noopener noreferrer">
+                  <button className="btn">Android Find My Device</button>
+                </a>
+              </div>
+            </div>
           </section>
           <section id="imeiChecker">
             <h2>IMEI Checker</h2>
@@ -91,6 +142,51 @@ const UserPage = () => {
             <h2>Statistics</h2>
             <p>Content for Statistics...</p>
           </section>
+          <section id="deviceInformation">
+            <h2>Submit Device Information</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label>Username</label>
+                <input type="text" name="username" value={inputs.username} onChange={handleChange} required />
+              </div>
+              <div className="form-group">
+                <label>IMEI</label>
+                <input type="text" name="imei" value={inputs.imei} onChange={handleChange} required />
+              </div>
+              <div className="form-group">
+                <label>Phone Number</label>
+                <input type="text" name="phonenumber" value={inputs.phonenumber} onChange={handleChange} required />
+              </div>
+              <div className="form-group">
+                <label>Complaint</label>
+                <textarea name="complaint" value={inputs.complaint} onChange={handleChange} required></textarea>
+              </div>
+              <button type="submit" className="btn">Submit</button>
+            </form>
+          </section>
+          <section id="map">
+            <h2>Map</h2>
+            <form onSubmit={handleMapSubmit}>
+              <div className="form-group">
+                <label>Latitude</label>
+                <input type="number" step="0.0001" name="lat" value={mapInputs.lat} onChange={handleMapChange} required />
+              </div>
+              <div className="form-group">
+                <label>Longitude</label>
+                <input type="number" step="0.0001" name="lng" value={mapInputs.lng} onChange={handleMapChange} required />
+              </div>
+              <button type="submit" className="btn">Update Map</button>
+            </form>
+            <LoadScript googleMapsApiKey="AIzaSyClM0zyPgVVz-qNbDHrJd8klBGdhR0Fcvs">
+              <GoogleMap
+                mapContainerStyle={{ width: '100%', height: '400px' }}
+                center={location}
+                zoom={10}
+              >
+                <Marker position={location} />
+              </GoogleMap>
+            </LoadScript>
+          </section>
         </div>
       </div>
     </div>
@@ -98,87 +194,3 @@ const UserPage = () => {
 };
 
 export default UserPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import '../styles/UserPage.css';
-
-// const UserPage = () => {
-//   const [formData, setFormData] = useState({
-//     username: '',
-//     imei: '',
-//     phonenumber: '',
-//     complaint: ''
-//   });
-
-//   const handleChange = (e) => {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]: e.target.value
-//     });
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const response = await axios.post('http://127.0.0.1:5000/devicedata', formData);
-//       alert(response.data.message);
-//     } catch (error) {
-//       console.error('There was an error submitting the form!', error);
-//     }
-//   };
-
-//   return (
-//     <div className="user-page-container">
-//       <h2>Submit Device Data</h2>
-//       <form onSubmit={handleSubmit}>
-//         <input
-//           type="text"
-//           name="username"
-//           placeholder="Username"
-//           value={formData.username}
-//           onChange={handleChange}
-//           required
-//         />
-//         <input
-//           type="text"
-//           name="imei"
-//           placeholder="IMEI"
-//           value={formData.imei}
-//           onChange={handleChange}
-//           required
-//         />
-//         <input
-//           type="text"
-//           name="phonenumber"
-//           placeholder="Phone Number"
-//           value={formData.phonenumber}
-//           onChange={handleChange}
-//           required
-//         />
-//         <textarea
-//           name="complaint"
-//           placeholder="Complaint"
-//           value={formData.complaint}
-//           onChange={handleChange}
-//           required
-//         ></textarea>
-//         <button type="submit">Submit</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default UserPage;

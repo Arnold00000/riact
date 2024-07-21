@@ -25,7 +25,7 @@
 
 .main-content {
   display: flex;
-  height: calc(100% - 80px); /* Adjust height for navbar */
+  height: calc(100% - 60px); /* Adjust height for navbar */
 }
 
 .sidebar {
@@ -64,8 +64,8 @@
 }
 
 .content {
-  margin-left: 200px; /* Adjust margin to make room for the sidebar */
-  padding: 10px;
+  margin-left: 220px; /* Adjust margin to make room for the sidebar */
+  padding: 20px;
   flex-grow: 1;
   overflow-y: auto;
 }
@@ -82,55 +82,62 @@
   line-height: 1.6;
 }
 
+.find-my-device {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
 
+.find-my-device .illustration {
+  text-align: center;
+}
 
+.find-my-device .illustration img {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+}
 
+.find-my-device .illustration .btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
 
+.find-my-device .illustration .btn:hover {
+  background-color: #0056b3;
+}
 
+.form-group {
+  margin-bottom: 15px;
+}
 
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
 
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
 
+.btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-
-
-/* User Page Specific Styles
-
- 
-  .user-page-container {
-    text-align: center;
-    margin-top: 50px;
-
-    padding: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    max-width: 500px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  input, textarea {
-    padding: 10px;
-    width: 300px;
-    font-size: 16px;
-
-    width: 100%;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-  }
-   */
+.btn:hover {
+  background-color: #0056b3;
+}
