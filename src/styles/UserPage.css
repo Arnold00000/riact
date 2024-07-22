@@ -1,16 +1,24 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .userpage-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
+/* Navbar Styling */
 .navbar {
+  background-color: #0044cc;
+  color: #fff;
+  padding: 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
 }
 
 .navbar-logo {
@@ -20,72 +28,118 @@
 
 .navbar-logo img {
   height: 40px;
-  margin-right: 10px;
+  margin-right: 1rem;
 }
 
+.navbar-logo span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Main Content Styling */
 .main-content {
   display: flex;
-  height: calc(100% - 60px); /* Adjust height for navbar */
+  flex: 1;
+  overflow: hidden;
 }
 
+/* Sidebar Styling */
 .sidebar {
-  width: 200px;
-  background-color: #e6f7ff; /* Light blue */
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  position: fixed;
-  height: 100%;
+  background-color: #f4f4f4;
+  padding: 1rem;
+  width: 250px;
+  overflow-y: auto;
 }
 
 .sidebar ul {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
 }
 
 .sidebar ul li {
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .sidebar ul li a {
-  color: #333;
   text-decoration: none;
+  color: #333;
+  font-weight: bold;
   display: flex;
   align-items: center;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.sidebar ul li a:hover {
-  background-color: #ddd;
 }
 
 .sidebar ul li a i {
-  margin-right: 10px;
+  margin-right: 0.5rem;
 }
 
+/* Content Section Styling */
 .content {
-  margin-left: 220px; /* Adjust margin to make room for the sidebar */
-  padding: 20px;
-  flex-grow: 1;
+  flex: 1;
+  padding: 2rem;
   overflow-y: auto;
 }
 
 .content section {
-  margin-bottom: 40px;
+  margin-bottom: 2rem;
 }
 
 .content section h2 {
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
-.content section p {
-  line-height: 1.6;
+.content section img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
 }
 
+.content section p,
+.content section ul {
+  margin-bottom: 1rem;
+}
+
+.content section ul {
+  list-style-type: disc;
+  margin-left: 2rem;
+}
+
+.content section .btn {
+  background-color: #0044cc;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.content section .btn:hover {
+  background-color: #0033a0;
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Find My Device Styling */
 .find-my-device {
   display: flex;
-  justify-content: space-around;
-  margin: 20px 0;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .find-my-device .illustration {
@@ -93,51 +147,35 @@
 }
 
 .find-my-device .illustration img {
-  width: 200px;
+  max-width: 150px;
   height: auto;
-  display: block;
-  margin: 0 auto 10px;
+  margin-bottom: 0.5rem;
 }
 
 .find-my-device .illustration .btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  cursor: pointer;
+  display: inline-block;
 }
 
-.find-my-device .illustration .btn:hover {
-  background-color: #0056b3;
+/* Map Section Styling */
+#map {
+  position: relative;
 }
 
-.form-group {
-  margin-bottom: 15px;
+#map form {
+  margin-bottom: 1rem;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
+#map .form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
+#map .form-group label {
+  flex: 1;
 }
 
-.btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #0056b3;
+#map .form-group input {
+  flex: 2;
+  margin-left: 0.5rem;
 }
