@@ -153,7 +153,7 @@ const UserPage = () => {
               </div>
               <button type="submit" className="btn">Update Map</button>
             </form>
-            <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+            <LoadScript googleMapsApiKey="AIzaSyBOO6a2QKkzcvZzfszTgQxpui-8xODl0GU">
               <GoogleMap
                 mapContainerStyle={{ width: '100%', height: '300px' }}
                 center={location}

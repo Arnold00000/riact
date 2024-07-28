@@ -13,15 +13,27 @@ const Home = () => {
           <span className="system-name">UCC DEVICE ASSISTANT</span>
         </div>
         <div className="navbar-right">
-          <Link to="/userLogin">
-            <button className="btn">User Login</button>
-          </Link>
-          <Link to="/userRegister">
-            <button className="btn">User Register</button>
-          </Link>
-          <Link to="/adminLogin">
-            <button className="btn">Admin Login</button>
-          </Link>
+          <div className="dropdown">
+            <button className="dropbtn">About Us</button>
+            <div className="dropdown-content">
+              <Link to="/about">Our Mission</Link>
+              <Link to="/team">Our Team</Link>
+            </div>
+          </div>
+          <div className="dropdown">
+            <button className="dropbtn">Services</button>
+            <div className="dropdown-content">
+              <Link to="/services/device-tracking">Device Tracking</Link>
+              <Link to="/services/device-management">Device Management</Link>
+            </div>
+          </div>
+          <div className="dropdown">
+            <button className="dropbtn">Contact Us</button>
+            <div className="dropdown-content">
+              <Link to="/contact">Contact Information</Link>
+              <Link to="/support">Support</Link>
+            </div>
+          </div>
         </div>
       </nav>
       
@@ -49,7 +61,12 @@ const Home = () => {
             <p className="legend">Get real-time updates on device status</p>
           </div>
         </Carousel>
-        
+
+        <div className="get-started">
+          <Link to="/userLogin">
+            <button className="btn-get-started">GET STARTED</button>
+          </Link>
+        </div>
       </div>
     </div>
   );
