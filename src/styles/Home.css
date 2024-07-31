@@ -16,7 +16,7 @@ body, html {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #34495e;
+  background-color: #34495e; /* Matching container color */
   color: white;
 }
 
@@ -85,8 +85,14 @@ body, html {
 }
 
 .home-container {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
   padding: 20px;
+  flex-direction: row;
+}
+
+.home-left, .home-right {
+  width: 48%;
 }
 
 .home-title {
@@ -114,11 +120,8 @@ body, html {
   object-fit: cover; /* Cover the container without distortion */
 }
 
-.get-started {
-  margin-top: 30px;
-}
-
 .btn-get-started {
+  margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
   text-decoration: none;

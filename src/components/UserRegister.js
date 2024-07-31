@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../styles/UserRegister.css';
 
 export default function RegisterUser() {
@@ -59,6 +59,17 @@ export default function RegisterUser() {
   return (
     <div style={backgroundStyle}>
       <div style={backgroundOverlayStyle}></div>
+      <nav className="transparent-navbar">
+        <Link to="/" className="nav-logo">
+          <img src="/images/logo.png" alt="Logo" className="nav-logo-img" />
+          <span className="nav-logo-text">Home</span>
+        </Link>
+        <div className="nav-links">
+          <Link to="/about" className="nav-link">About Us</Link>
+          <Link to="/services" className="nav-link">Services</Link>
+          <Link to="/contact" className="nav-link">Contact Us</Link>
+        </div>
+      </nav>
       <div className="register-container" style={registerContainerStyle}>
         <h2>Register User</h2>
         {notification && <div className={`alert ${notification.includes("successfully") ? "alert-success" : "alert-danger"}`}>{notification}</div>}

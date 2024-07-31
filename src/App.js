@@ -6,7 +6,7 @@ import UserPage from './components/UserPage';
 
 import UserRegister from './components/UserRegister';
 import UserLogin from './components/UserLogin';
-
+import AboutUs from './components/AboutUs';
 
 import './App.css';
 import AdminLogin from './components/AdminLogin';
@@ -21,6 +21,9 @@ const App = () => {
           <Route path="/userLogin" element={<UserLogin />} />
           <Route path="/userRegister" element={<UserRegister />} />
           <Route path="/userPage" element={<UserPage />} />
+          <Route path="/about" element={<AboutUs />} />
+          
+
 
 
 
